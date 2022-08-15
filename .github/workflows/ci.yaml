@@ -7,17 +7,28 @@ on:
 jobs:
   check-application:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go: ['1.14','1.15']
+    # strategy:
+      # matrix:
+        # go: ['1.14','1.15']
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go }} #1.15
+          go-version: 1.15 # ${{ matrix.go }}
       - name: Run test
         working-directory: ./lab-ci/go
         run: go test
       - name: Run program
         working-directory: ./lab-ci/go
         run: go run math.go
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-qemu-action@v2
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: false
+          tags: henriqueluizz/lab-ci-go:latest
+
