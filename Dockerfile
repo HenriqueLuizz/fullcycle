@@ -2,7 +2,7 @@ FROM golang:latest
 
 WORKDIR /app
 
-COPY ./lab-ci/go .
+COPY /home/runner/work/fullcycle/fullcycle/lab-ci/go .
 
 RUN go env -w GO111MODULE=off
 
