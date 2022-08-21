@@ -38,7 +38,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./lab-ci/go
+          context: /home/runner/work/fullcycle/fullcycle/lab-ci/go/
           file: ./Dockerfile
           push: false
           tags: henriqueluizz/lab-ci-go:latest
