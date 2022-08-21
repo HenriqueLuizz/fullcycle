@@ -48,3 +48,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: henriqueluizz/lab-ci-go:latest
+          
