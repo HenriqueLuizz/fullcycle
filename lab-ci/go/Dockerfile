@@ -2,7 +2,7 @@ FROM golang:latest
 
 WORKDIR /app
 
-COPY . .
+COPY ./lab-ci/go .
 
 RUN go env -w GO111MODULE=off
 
